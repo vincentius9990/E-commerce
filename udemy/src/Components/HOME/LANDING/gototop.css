@@ -1,0 +1,39 @@
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to start position */
+  }
+}
+.top-iconbtn{
+float: right;
+position: fixed;
+bottom: 1px;
+right: 1px;
+/* animation: moveUp 1s ease infinite; */
+z-index: 1;/*The z-index property in CSS is used to control the stacking order of positioned elements*/
+border: none;
+border-radius: 100%;
+background-color: rgb(97, 97, 235);
+animation: moveUp 2.5s ease infinite;
+color: black;
+}
+
+
+.top-btn:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+.scrolled {
+    bottom: 100px; /* Adjust the new position when scrolled */
+  }  
+  html {
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+  }

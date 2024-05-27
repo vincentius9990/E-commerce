@@ -1,0 +1,84 @@
+.login
+{
+border: 1px solid red;
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+padding: 100px 50px;
+}
+.image 
+{
+    border: 1px solid red;
+}
+.image img{
+height: 100px;
+width:50%;
+
+}
+.login-div
+{
+    border: 1px solid red;
+
+}
+
+.loginForm
+{
+    /* border: 1px solid red; */
+    height: 409px;
+    width: 485px;
+    margin: 60px;
+
+    
+}
+.loginForm h1,p,h3
+{
+ 
+
+    text-align: center;
+}
+.loginForm h1{
+    font-size: 30px;
+}
+.loginForm p{
+    font-size: 20px;
+}
+
+
+
+.button
+{
+/* border: 1px solid red; */
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5px
+}
+.button
+{
+    border: 1px solid red;
+width: 100%;
+height: 38px;
+margin-top:50px;
+margin-bottom: 15px;
+
+}
+.textfield
+{
+margin-top: 170px;
+
+}
+.Button{
+width: 100%;
+}
+.p-login
+{
+    color: green;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+.parent{
+
+/* border: 1px solid red; */
+height: 560px;
+width: 100%;
+display: flex;
+align-items: center;
+background-image: url('src/Components/IMAGES/ezgif-1-d2cfe6cb9b.jpg');
+background-size: cover;/* to ensure the image covers the entire <div> while maintaining its aspect ratio.*/
+}
+.text 
+{
+height:270px ;
+width: 534px;
+    /* border: 1px solid red; */
+    margin-left: 193px;
+}
+
+.text span{
+
+    font-size: 30px;
+
+
+
+}
+.text h1{
+font-size: 60px;
+}
+
+.button{
+
+    width: 174px;
+    height: 50px;
+    
+}
+.text{
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+
+}

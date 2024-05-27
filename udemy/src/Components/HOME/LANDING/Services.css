@@ -1,0 +1,65 @@
+.parentServices
+{
+    /* border: 1px solid red; */
+height: 358px;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+gap:10px
+}
+.leftServices
+{
+/* border: 1px solid red; */
+width: 334px;
+height: 170px;
+text-align: center;
+font-size: 16px;
+
+
+}
+.middleServices
+{
+    text-align: center;
+    /* border: 1px solid red; */
+width: 334px;
+height: 170px;
+font-size: 16px;
+
+}
+
+
+.rightServices
+{
+    /* border: 1px solid red; */
+width: 334px;
+font-size: 16px;
+height: 170px;
+text-align: center;
+
+
+}
+.leftServices:hover,.middleServices:hover,.rightServices:hover{
+   
+    cursor: pointer;
+color: rgb(76, 75, 75);
+border-bottom: 1px solid blue;
+}
+@keyframes moveUp {
+    0% {
+      transform: translateY(0); /* Start position */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up */
+    color:rgb(93, 93, 139)
+    
+    }
+    100% {
+      transform: translateY(0); /* Return to start position */
+    }
+  }
+  
+  .animated-icon {
+    animation:  2.5s moveUp ease infinite; /* Apply animation */
+  }
+  

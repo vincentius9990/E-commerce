@@ -1,0 +1,98 @@
+
+.products 
+{
+display: inline-block;
+margin: 10px;
+box-sizing: border-box;
+}
+#app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+  }
+    
+  .text-product-grid {
+    height: 98px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    visibility: visible;
+  }
+  
+  .icon-grid {
+    visibility: hidden;
+
+    position: absolute; /* Set position to absolute */
+  top: 50%; /* Adjust the top position */
+  left: 50%; /* Adjust the left position */
+  transform: translate(-2%, -50%); /* Center the icon */
+  transform: scale(2.5);
+ 
+
+}
+  
+  .cardaction:hover .icon-grid{
+    visibility: visible;
+    color:black;
+    border: 1px solid black;
+    background-color:white;
+    border-radius: 10%; 
+    transform: scale(2.8);
+   transition: transform 1s ease;
+  }
+  .cardaction:active
+  {
+background-color: rgb(200, 200, 246);
+
+  }
+  
+  
+  
+  .cardaction:hover .text-product-grid {
+    visibility: visible;
+  }
+  
+
+
+
+
+
+

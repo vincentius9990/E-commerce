@@ -1,0 +1,30 @@
+.feature-parent
+{
+/* border: 1px solid red; */
+height: 790px;
+width: 100%;
+display: flex;
+padding: 100px;
+gap: 10px;
+
+}
+.left
+{
+/* border: 1px solid red; */
+width: 590px;
+height: 590px;
+background-image: url(src/Components/IMAGES/feature.jpg);
+background-size: cover;
+}
+.right
+{
+    /* border: 1px solid blue; */
+    width:  620px;
+    height: 590px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1fr 1fr;
+    grid-row-gap: 10px;
+    gap: 8px;
+}
+@media (max-width:)
