@@ -33,8 +33,7 @@ const Contact = () => {
       Swal.fire({
         position:"center",
         icon: "error",
-        title: "Oops...",
-        text: "Blank values not allowed",
+        title: "Blank values not allowed"
       });
     } else {
       Swal.fire({
@@ -67,7 +66,7 @@ const Contact = () => {
             type="email"
             id="email"
             name="email"
-            required
+           
             value={formData.email}
             onChange={handleChange}
           />

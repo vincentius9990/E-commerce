@@ -17,9 +17,10 @@ const navigate=useNavigate();
   const calculateTotalPrice = () => {
     let Totalprice = 0;
     items.forEach((item) => {
-      Totalprice = Totalprice + item.price * item.quantity-item.discountPercentage/100*item.price;
+      Totalprice = Totalprice + item.price * item.quantity-(item.discountPercentage/100*item.price*item.quantity);
     });
-    return Math.round(Totalprice);
+
+    return Number(Totalprice.toFixed(2));
   };
 
   return (
@@ -79,11 +80,11 @@ const navigate=useNavigate();
                   <div className="child-cart-4">
                     <h2>
                       {"$"}
-                      {Math.round(
+                      {Number((
                         item.price * item.quantity -
                           (item.discountPercentage / 100) *
                             (item.price * item.quantity)
-                      )}{" "}
+                      ).toFixed(2))}{" "}
                     </h2>
                     <del> {"$" + item.price * item.quantity} </del>
                   </div>

@@ -6,7 +6,9 @@ import Sidebar from './Sidebar';
 const Admin = () => {
   return (
     <>
+
       <Users data={users} />
+      
       <Sidebar />
     </>
   );
