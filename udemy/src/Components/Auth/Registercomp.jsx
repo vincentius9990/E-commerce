@@ -4,7 +4,7 @@ import { Button, TextField } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 const Registercomp = () => {
 const[formdata,setformdata]=useState({
   fname:'',
@@ -20,17 +20,43 @@ setformdata({...formdata,[e.target.name]:e.target.value});
  
  const handlesubmit=(e)=>{
   e.preventDefault();
-  axios.post("http://127.0.0.1:3000/register",formdata).then((data)=>{
-console.log(" form data sent",data);
-alert("user created successfully");
+  if(formdata.fname===''||formdata.lastname===''||formdata.email===''||formdata.password==='')
+  {
 
-navigate('/login');
+    Swal.fire({
+      icon: "error",
+      title: "Blank values not allowed"
+    });
+    
+
+
+
+  }
+  else{
+    axios.post("http://127.0.0.1:3000/register",formdata).then((data)=>{
+console.log(" form data sent",data);
+Swal.fire({
+  position: "center",
+  icon: "success",
+  title: "User created successfully",
+  showConfirmButton: false,
+  timer: 1500
+});
+
+setTimeout(()=>{
+  navigate('/login');
+
+},1500)
+
+
+
+
   }).catch((err)=>{
 
     console.log("no formdata sent",err);
   })
 
-
+  }
 
  }
 

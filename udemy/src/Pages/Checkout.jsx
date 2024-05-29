@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
 import './checkout.css';
 import { useCart } from "react-use-cart";
-
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 const Checkout = () => {
     const [shippingAddress, setShippingAddress] = useState({});
     const [billingAddress, setBillingAddress] = useState({});
     const [termsAccepted, setTermsAccepted] = useState(false);
     const { items, updateItemQuantity, emptyCart } = useCart();
-
+const navigate=useNavigate();
     const handlePlaceOrder = () => {
         if (termsAccepted) {
             // Proceed with order placement
             console.log("Order placed successfully");
-        } else {
-            alert('Please accept the terms and conditions to proceed.');
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Order placed successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+       setTimeout(() => {
+        navigate('/');
+       }, 1500);
+       
+            } else {
+            // alert('Please accept the terms and conditions to proceed.');
+            Swal.fire({
+                icon: "error",
+                title: "Please accept the terms and conditions to proceed"
+              });
+              
         }
     };
 
@@ -46,29 +63,30 @@ let total=Subtotal-discount_sum-shipping;
     return (
         <div className="checkout">
             <h2>Shipping Address</h2>
-            <input type="text" placeholder="Address Line 1" name="line1" onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            <input type="text" placeholder="Address Line 2" name="line2" onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            <input type="text" placeholder="City" name="city" onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            <input type="text" placeholder="State" name="state" onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            <input type="text" placeholder="Zip Code" name="zip" onChange={(e) => handleInputChange(e, setShippingAddress)} />
+            
+            <input required type="text" placeholder="Address Line 1" name="line1" onChange={(e) => handleInputChange(e, setShippingAddress)} />
+            <input required type="text" placeholder="Address Line 2" name="line2" onChange={(e) => handleInputChange(e, setShippingAddress)} />
+            <input required type="text" placeholder="City" name="city" onChange={(e) => handleInputChange(e, setShippingAddress)} />
+            <input required type="text" placeholder="State" name="state" onChange={(e) => handleInputChange(e, setShippingAddress)} />
+            <input required type="text" placeholder="Zip Code" name="zip" onChange={(e) => handleInputChange(e, setShippingAddress)} />
 
             <h2>Billing Address</h2>
-            <input type="checkbox" onChange={(e) => handleCheckboxChange(e, setBillingAddress)} /> Same as shipping address
-            <input type="text" placeholder="Address Line 1" name="line1" onChange={(e) => handleInputChange(e, setBillingAddress)} />
-            <input type="text" placeholder="Address Line 2" name="line2" onChange={(e) => handleInputChange(e, setBillingAddress)} />
-            <input type="text" placeholder="City" name="city" onChange={(e) => handleInputChange(e, setBillingAddress)} />
-            <input type="text" placeholder="State" name="state" onChange={(e) => handleInputChange(e, setBillingAddress)} />
-            <input type="text" placeholder="Zip Code" name="zip" onChange={(e) => handleInputChange(e, setBillingAddress)} />
+            <input required type="checkbox" onChange={(e) => handleCheckboxChange(e, setBillingAddress)} /> Same as shipping address
+            <input required type="text" placeholder="Address Line 1" name="line1" onChange={(e) => handleInputChange(e, setBillingAddress)} />
+            <input required type="text" placeholder="Address Line 2" name="line2" onChange={(e) => handleInputChange(e, setBillingAddress)} />
+            <input required type="text" placeholder="City" name="city" onChange={(e) => handleInputChange(e, setBillingAddress)} />
+            <input required type="text" placeholder="State" name="state" onChange={(e) => handleInputChange(e, setBillingAddress)} />
+            <input required type="text" placeholder="Zip Code" name="zip" onChange={(e) => handleInputChange(e, setBillingAddress)} />
 
             <h2>Payment Information</h2>
-            <input type="text" placeholder="Card Number" name="cardNumber" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
-            <input type="text" placeholder="Name on Card" name="nameOnCard" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
-            <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
-            <input type="text" placeholder="CVV" name="cvv" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
+            <input required type="text" placeholder="Card Number" name="cardNumber" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
+            <input  required type="text" placeholder="Name on Card" name="nameOnCard" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
+            <input required type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
+            <input required type="text" placeholder="CVV" name="cvv" onChange={(e) => handleInputChange(e, setPaymentDetails)} />
 
             <h2>Contact Information</h2>
-            <input type="email" placeholder="Email Address" name="email" onChange={(e) => handleInputChange(e, setContactInfo)} />
-            <input type="tel" placeholder="Phone Number" name="phone" onChange={(e) => handleInputChange(e, setContactInfo)} />
+            <input required type="email" placeholder="Email Address" name="email" onChange={(e) => handleInputChange(e, setContactInfo)} />
+            <input required type="tel" placeholder="Phone Number" name="phone" onChange={(e) => handleInputChange(e, setContactInfo)} />
 
             <h2>Order Summary</h2>
             <div className="order-summary">

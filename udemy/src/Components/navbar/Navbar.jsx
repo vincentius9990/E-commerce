@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import Swal from 'sweetalert2';
+import {TextField} from "@mui/material";
 import {
   AppBar,
   Box,
@@ -15,6 +17,7 @@ import {
   Dialog,
   DialogActions,
   DialogTitle,
+  DialogContent ,
 } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -41,18 +44,21 @@ const settings = ["Profile", "Account", "Logout"];
 function Navbar() {
   const [show, setshow] = useState(false);
   const isLoggedIn = localStorage.getItem("isloggedin") === "true";
-  const handlesearch = () => {
-    setshow(!show);
-  };
+  const[opendialog,setopendialog]=useState(false);
+  
 const navigate=useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [open, setopen] = useState(false);
+  const[password,setpassword]=useState('');
 
   const { totalUniqueItems } = useCart(); // Accessing cart state
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+  };
+  const handlesearch = () => {
+    setshow(!show);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -81,6 +87,41 @@ localStorage.removeItem('isloggedin');
 handleCloseUserMenu();
 setopen(false);
   }
+  const handleAdmin=()=>{
+setopendialog(true);
+
+  }
+
+  const handleclosedialogadmin=()=>{
+setopendialog(false);
+  }
+
+
+
+  const handlePasswordChange=(e)=>{
+setpassword(e.target.value);
+  }
+
+  const adminroute=()=>{
+setopendialog(false);
+if(password==='admin666')
+  {
+navigate('/sidebar');
+
+  }
+  else
+  {
+    
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Incorrect password. Please try again"
+    });
+  }
+
+
+  }
+
 
   return (
     <>
@@ -226,7 +267,7 @@ setopen(false);
                 isLoggedIn && (
               
               <Tooltip title='Admin'> 
-              <IconButton onClick={()=>{navigate('/sidebar') }}>
+              <IconButton onClick={handleAdmin}>
               <AdminPanelSettingsIcon/>
               </IconButton> </Tooltip>
             )}
@@ -299,6 +340,28 @@ setopen(false);
           <Button variant="contained" onClick={handleopen}>Logout</Button>
         </DialogActions>
       </Dialog>
+
+{/*below code is contains logic to enter password */}
+      <Dialog open={opendialog} fullWidth onClose={handleclosedialogadmin}>
+        <DialogTitle>Enter Password</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            type="password"
+            fullWidth
+            variant="standard"
+            
+            onChange={handlePasswordChange}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={()=>setopendialog(false)} variant='outlined'>Cancel</Button>
+          <Button onClick={adminroute} variant="contained">Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+
     </>
   );
 }
