@@ -1,30 +1,51 @@
 import React, { useState } from 'react';
-import { Box, CssBaseline, AppBar, Toolbar, Typography, IconButton, Tooltip, Drawer, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import {
+  Box,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Tooltip,
+  Drawer,
+  Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupIcon from '@mui/icons-material/Group';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import { useNavigate } from 'react-router-dom';
 import Users from './Users';
+import Shippinginfo from './Shippinginfo';
 
 const drawerWidth = 240;
 
 const menuItems = [
-  { text: 'users', icon: <GroupIcon />, action: 'handleUsers' },
+  { text: 'Users', icon: <GroupIcon />, action: 'handleUsers' },
+  { text: 'ShippingInfo', icon: <LocalShippingIcon />, action: 'handleShipping' },
 ];
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [selectedItem, setSelectedItem] = React.useState('');
-const [usertoggle,setusertoggle] = useState(false);
+  const [selectedItem, setSelectedItem] = useState('Users'); // Set default to 'Users'
+
   const handleUsers = () => {
-    setSelectedItem('users');
-    setusertoggle(true);
-    
-    // Handle users click logic
+    setSelectedItem('Users');
+  };
+
+  const handleShipping = () => {
+    setSelectedItem('ShippingInfo');
   };
 
   const handleItemClick = (action) => {
     if (action === 'handleUsers') {
       handleUsers();
+    } else if (action === 'handleShipping') {
+      handleShipping();
     }
   };
 
@@ -45,8 +66,8 @@ const [usertoggle,setusertoggle] = useState(false);
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Admin Panel
           </Typography>
-          <IconButton variant='text' color="primary" onClick={() => navigate('/')}>
-            <Tooltip title='HOME'>
+          <IconButton variant="text" color="primary" onClick={() => navigate('/')}>
+            <Tooltip title="HOME">
               <HomeIcon />
             </Tooltip>
           </IconButton>
@@ -69,8 +90,18 @@ const [usertoggle,setusertoggle] = useState(false);
         <List>
           {menuItems.map((item) => (
             <ListItem key={item.text} disablePadding>
-              <ListItemButton onClick={() => handleItemClick(item.action)} className={selectedItem === item.text ? 'colorChange' : ''}>
-                <ListItemIcon>
+              <ListItemButton
+                onClick={() => handleItemClick(item.action)}
+                sx={{
+                  backgroundColor: selectedItem === item.text ? 'primary.main' : 'inherit',
+                  color: selectedItem === item.text ? 'white' : 'inherit',
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    color: selectedItem === item.text ? 'white' : 'inherit',
+                  }}
+                >
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.text} />
@@ -85,28 +116,7 @@ const [usertoggle,setusertoggle] = useState(false);
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
-        
-       {usertoggle?(<Users/>):( <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-        
-        
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-        )} 
+        {selectedItem === 'Users' ? <Users /> : <Shippinginfo />}
       </Box>
     </Box>
   );

@@ -50,7 +50,7 @@ const finduser = async (req, res) => {
     }
 
     // If user is found and passwords match
-    const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: "1h" });
+    const token = jwt.sign({ email: user.email }, secretKey);
     console.log("Generated Token:", token);
     return res.status(200).json({message:"login successful",token:token}); // Sending the token in the JSON response
   } catch (error) {

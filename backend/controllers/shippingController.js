@@ -23,5 +23,21 @@ res.status(500).json({message:e})
 }
 }
 
+const getData=async(req,res)=>{
 
-module.exports = { storeData };
+const data=await Order.find();
+if(data)
+    {
+        res.status(200).json({message:"Data retrieved successfully",data});
+    }
+    else
+    {
+
+    }
+
+
+
+}
+
+
+module.exports = { storeData ,getData};

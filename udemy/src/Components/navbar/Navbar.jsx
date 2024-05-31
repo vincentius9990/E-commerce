@@ -64,7 +64,7 @@ const navigate=useNavigate();
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = () => {  
     setAnchorElNav(null);
   };
 
@@ -84,6 +84,12 @@ const navigate=useNavigate();
 
 
 localStorage.removeItem('isloggedin');
+Swal.fire({
+  title: "Logout successful",
+  text: "You have successfully logged out",
+  icon: "success"
+});
+
 handleCloseUserMenu();
 setopen(false);
   }
@@ -271,14 +277,10 @@ navigate('/sidebar');
               <AdminPanelSettingsIcon/>
               </IconButton> </Tooltip>
             )}
-                <Tooltip title="Wishlist">
-                  <IconButton>
-                    <FavoriteBorderIcon />
-                  </IconButton>
-                </Tooltip>
                 
                 
-                <Tooltip title="Shopping Cart">
+                
+              {isLoggedIn &&  (<Tooltip title="Shopping Cart">
                   <IconButton>
                     <Link to="/cart">
                       <Badge badgeContent={totalUniqueItems} color="primary">
@@ -286,7 +288,7 @@ navigate('/sidebar');
                       </Badge>
                     </Link>
                   </IconButton>
-                </Tooltip>
+                </Tooltip>)}
               {isLoggedIn &&  (<Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                     <Avatar

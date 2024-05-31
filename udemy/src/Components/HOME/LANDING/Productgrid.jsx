@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Alert } from "@mui/material";
 import { useCart } from 'react-use-cart';
+import Swal from "sweetalert2";
 
 
 
@@ -20,6 +21,7 @@ const Productgrid = () => {
   const[selectedItem,setselectedItem]=useState(null);
   const[alerttoggle,setalertoggle]=useState(false);
   const {addItem} = useCart();
+  const isLoggedIn = localStorage.getItem("isloggedin") === "true";
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products")
@@ -41,8 +43,19 @@ const Productgrid = () => {
     return <div>Error: {error.message}</div>;
   }
   const cardaction=(data)=>{
+    if(!isLoggedIn)
+      {
+        Swal.fire({
+          title: "You are not logged in",
+          text: "Please Login to continue",
+          icon: "error"
+        });
+        
+      }
+      else
+      {
     addItem(data);
-
+      
 setalertoggle(true);    
     console.log(data);
     setselectedItem(data.title);
@@ -50,7 +63,7 @@ setalertoggle(true);
     setTimeout(()=>{
 setalertoggle(false);
 
-    },4000)
+    },4000)}
   }
   const handleCloseAlert=()=>{
 
@@ -62,6 +75,7 @@ setalertoggle(false);
 
   return (
     <> 
+
     <Swiper
     slidesPerView={4}
       spaceBetween={30}
