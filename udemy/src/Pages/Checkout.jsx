@@ -25,7 +25,61 @@ const[amount,setamount]=useState({subtotal:'',discount:'',shippingcost:'',total:
   const { items, updateItemQuantity, emptyCart } = useCart();
   const navigate = useNavigate();
   const handlePlaceOrder = () => {
-    if (termsAccepted) {
+      if(!termsAccepted){
+        Swal.fire({
+          icon: "error",
+          title: "Please accept the terms and conditions to proceed",
+        });
+      return;
+      }
+
+const{line1,line2,city,state,zip}=shippingAddress;
+      if(line1.trim()===''|| line2.trim()===''||city===""||zip===''||state==='')
+{
+  Swal.fire({
+    icon: "error",
+    title: "Please fill out all required shipping address fields",
+  });
+  return;
+}
+
+const{cardNumber,nameOnCard,expirationDate,cvv}=payment;
+if(cardNumber.trim()===''||nameOnCard.trim()===''||expirationDate.trim()===''||cvv.trim()==='')
+{
+  Swal.fire({
+    icon: "error",
+    title: "Please fill out Payment Information",
+  });
+  return;
+}
+
+const{email,phone}=contactinfo;
+if(email.trim()===''||phone.trim()==='')
+  {
+    Swal.fire({
+      icon: "error",
+      title: "Please fill out Contact Information",
+    });
+    return;
+  }
+
+const{shippingMethod}=ship;
+if(shippingMethod==='')
+  {
+
+    Swal.fire({
+      icon: "error",
+      title: "Please select a Shipping Method",
+    });
+    return;
+
+
+  }
+
+
+
+
+
       // Proceed with order placement
       console.log("Order placed successfully");
       const obj={...shippingAddress,...payment,...contactinfo,...ship,...amount};
@@ -37,6 +91,10 @@ const[amount,setamount]=useState({subtotal:'',discount:'',shippingcost:'',total:
           showConfirmButton: false,
           timer: 1500,
         });
+     
+     
+     
+     
       }).catch((e)=>{
 
 alert(e);
@@ -47,14 +105,9 @@ alert(e);
       setTimeout(() => {
         navigate("/");
       }, 1500);
-    } else {
-      // alert('Please accept the terms and conditions to proceed.');
-      Swal.fire({
-        icon: "error",
-        title: "Please accept the terms and conditions to proceed",
-      });
-    }
-  };
+    } 
+  
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

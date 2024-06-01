@@ -39,7 +39,7 @@ const pages = [
   { id: 3, name: "register", link: "/register", icon: <HowToRegIcon /> },
   { id: 4, name: "Contact Us", link: "/contact", icon: <ContactPageIcon /> },
 ];
-const settings = ["Profile", "Account", "Logout"];
+const settings = ["Logout"];
 
 function Navbar() {
   const [show, setshow] = useState(false);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.css";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setformData] = useState({
@@ -8,7 +9,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const [alert, setalert] = useState(false);
+  const navigate=useNavigate();
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -18,24 +19,23 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Form submitted:", formData);
-  };
-
-  const handlesubmit = () => {
+    e.preventDefault();  
     if (
-      formData.name === "" ||
-      formData.email === '' ||
-      formData.message === "" ||
-      required===true
+      formData.name.trim() === "" ||
+      formData.email.trim() === '' ||
+      formData.message.trim() === ""
     ) {
+      
       Swal.fire({
         position:"center",
         icon: "error",
         title: "Blank values not allowed"
       });
+   
+       
+   
     } else {
+  
       Swal.fire({
         position: "center",
         icon: "success",
@@ -43,7 +43,17 @@ const Contact = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+   
+      setTimeout(()=>{
+
+        navigate('/');
+      
+      },2000)
+   
     }
+
+
+
   };
 
   return (
@@ -80,7 +90,7 @@ const Contact = () => {
             value={formData.message}
           ></textarea>
         </div>
-        <button type="submit" className="submit-button" onClick={handlesubmit}>
+        <button type="submit" className="submit-button">
           Submit
         </button>
       </form>
