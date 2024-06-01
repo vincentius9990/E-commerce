@@ -110,11 +110,11 @@ setpassword(e.target.value);
 
   const adminroute=()=>{
 setopendialog(false);
-if(password==='admin666')
+if(password.trim()==='admin666')
   {
-navigate('/sidebar');
-
-  }
+navigate('/sidebar'); 
+  setpassword('');
+}
   else
   {
     

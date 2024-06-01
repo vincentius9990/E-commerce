@@ -25,13 +25,7 @@ const[amount,setamount]=useState({subtotal:'',discount:'',shippingcost:'',total:
   const { items, updateItemQuantity, emptyCart } = useCart();
   const navigate = useNavigate();
   const handlePlaceOrder = () => {
-      if(!termsAccepted){
-        Swal.fire({
-          icon: "error",
-          title: "Please accept the terms and conditions to proceed",
-        });
-      return;
-      }
+      
 
 const{line1,line2,city,state,zip}=shippingAddress;
       if(line1.trim()===''|| line2.trim()===''||city===""||zip===''||state==='')
@@ -74,6 +68,14 @@ if(shippingMethod==='')
     return;
 
 
+  }
+
+  if(!termsAccepted){
+    Swal.fire({
+      icon: "error",
+      title: "Please accept the terms and conditions to proceed",
+    });
+  return;
   }
 
 

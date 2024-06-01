@@ -20,12 +20,12 @@ const Shippinginfo = () => {
     {
       field: "address",
       headerName: "Address",
-      width: 150,
+      width: 160,
       valueGetter: (params) =>
         `${params.row.line1 || ""} ${params.row.line2 || ""}`, //function to merge two columns
     },
-    { field: "city", headerName: "City", width: 50 },
-    { field: "state", headerName: "State", width: 50 },
+    { field: "city", headerName: "City", width: 80 },
+    { field: "state", headerName: "State", width: 80 },
     { field: "email", headerName: "email", width: 55 },
     { field: "phone", headerName: "phone", width: 60 },
     { field: "discount", headerName: "Discount", width: 80 },
