@@ -92,7 +92,13 @@ Swal.fire({
 
 handleCloseUserMenu();
 setopen(false);
-  }
+  
+setTimeout(()=>{
+  location.reload();
+},2000)
+
+
+}
   const handleAdmin=()=>{
 setopendialog(true);
 
