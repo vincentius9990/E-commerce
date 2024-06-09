@@ -58,7 +58,7 @@ const Logincomp = () => {
     <>
       <div className="login">
         <div className="image">
-          <img src="./src/Components/IMAGES/loginimages.jpg" alt="login" />
+          <img src="/IMAGES/loginimages.jpg" alt="login" />
         </div>
         <div className="login-div">
           <div className="loginForm">
