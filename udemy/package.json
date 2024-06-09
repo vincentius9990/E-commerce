@@ -3,8 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "react-scripts": {
-    "build": "vite build"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
