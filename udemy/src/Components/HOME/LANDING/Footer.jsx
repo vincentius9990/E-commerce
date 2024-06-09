@@ -37,10 +37,10 @@ const Footer = () => {
           <input type='email' placeholder='Enter your email'></input>
           <Button variant='contained'>Subscribe</Button>
        <div className='footer-images'>
-<img src='src\Components\IMAGES\mastercard.jpg' ></img>
-<img src='src\Components\IMAGES\visa.jpg'></img>
-<img src='src\Components\IMAGES\paypal.png'></img>
- <img src='src\Components\IMAGES\discover.jpg'></img>
+<img src='\IMAGES\mastercard.jpg' ></img>
+<img src='\IMAGES\visa.jpg'></img>
+<img src='\IMAGES\paypal.png'></img>
+ <img src='\IMAGES\discover.jpg'></img>
        </div>
         </div>
       </div>
