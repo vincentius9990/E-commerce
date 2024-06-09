@@ -140,17 +140,20 @@ navigate('/sidebar');
       <AppBar
         position="sticky"
         sx={{ backgroundColor: "white", color: "black" }}
+        className="appbar-navbar"
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
               <Link to="/">
                 {" "}
-                <img
+                <div className="logoimg"> <img
                   src="https://frontends.udemycdn.com/frontends-homepage/staticx/udemy/images/v7/logo-udemy.svg"
                   alt="Logo"
-                  style={{ width: "100px", height: "35px" }}
+                  
                 />
+                </div>
+                
               </Link>
             </Box>
 
@@ -319,6 +322,7 @@ navigate('/sidebar');
                 }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
+                className="menu"
               >
                {settings.map((settings,index)=>
                settings==='Logout'?(<MenuItem key={index} onClick={handledialog}>

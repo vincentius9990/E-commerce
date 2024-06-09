@@ -13,7 +13,10 @@ const Feature = () => {
     <>
     
 <div className='feature-parent'>
-<div className='left'></div>
+<div className='left'>
+<img src='src/Components/IMAGES/feature.jpg'/>
+
+</div>
 <div className='right'>
 <Card image={img1} alt='img1' title="Build Quality and Design"/>
 <Card image={img2} alt='img2' title="Excellent battery life"/>

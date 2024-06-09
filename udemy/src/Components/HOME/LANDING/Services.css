@@ -3,10 +3,12 @@
     /* border: 1px solid red; */
 height: 358px;
 width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-gap:10px
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr;
+place-items: center;
+gap:1px;
+margin-top: 2px;
 }
 .leftServices
 {
@@ -39,11 +41,46 @@ text-align: center;
 
 
 }
+
+@media screen and (max-width:991px) {
+  .parentServices{
+
+    display: flex;
+
+  
+    
+  }
+
+  
+
+  
+}
+@media screen and (max-width:471px) {
+  
+.parentServices
+{
+  display: grid;
+grid-template-columns: 1fr;
+gap:10px;
+height: auto;
+margin-top:12px;
+width: 100%;
+
+}
+
+
+
+
+}
+
+
+
+
 .leftServices:hover,.middleServices:hover,.rightServices:hover{
    
     cursor: pointer;
 color: rgb(76, 75, 75);
-border-bottom: 1px solid blue;
+border-bottom: 1px solid blue !important;
 }
 @keyframes moveUp {
     0% {

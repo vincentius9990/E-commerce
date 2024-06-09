@@ -8,7 +8,8 @@ import './feature.css'
 const MYCard = (props) => {
   return (
 <>
-<Card sx={{ maxWidth: 345 }} className='card-image'>
+<div className='card-image'> 
+<Card sx={{ maxWidth: 345 }} >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -16,6 +17,7 @@ const MYCard = (props) => {
           image={props.image}
           alt={props.alt}
           sx={{ height: 140, width:"100%" }} 
+       className='cardmedia-feature'
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -28,7 +30,7 @@ const MYCard = (props) => {
       </CardActionArea>
     </Card>
 
-
+</div>
 </>
   )
 }

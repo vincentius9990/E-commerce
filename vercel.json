@@ -1,0 +1,27 @@
+{
+  "projects": [
+    {
+      "name": "frontend",
+      "source": "udemy",
+      "buildCommand": "npm run dev",
+      "outputDirectory": "public",
+      "root": "udemy"
+    },
+    {
+      "name": "backend",
+      "source": "backend",
+      "buildCommand": "npm install",
+      "outputDirectory": "."
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/udemy/build/$1"
+    }
+  ]
+}

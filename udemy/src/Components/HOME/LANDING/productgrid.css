@@ -1,9 +1,9 @@
 
 .products 
 {
-display: inline-block;
 margin: 10px;
 box-sizing: border-box;
+border: 1px solid red;
 }
 #app {
     height: 100%;
@@ -90,7 +90,12 @@ background-color: rgb(200, 200, 246);
     visibility: visible;
   }
   
+@media screen and (max-width:479px)
+{
 
+
+
+}
 
 
 

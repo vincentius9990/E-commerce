@@ -15,7 +15,7 @@ const Footer = () => {
         <div className='left-footer'>
           <h1>HUBLET</h1>
           <p>Lopsum is simply dummy text of the printing and typesetting industry has been the industry's standard dummy text</p>
-          <div>
+          <div className='icon-footer'>
             <IconButton color='primary'><FacebookIcon/></IconButton>
             <IconButton sx={{color:"black"}}><XIcon/></IconButton>
             <IconButton color='primary'><LinkedInIcon/></IconButton>
@@ -36,7 +36,7 @@ const Footer = () => {
           <h6>Newsletter</h6>
           <input type='email' placeholder='Enter your email'></input>
           <Button variant='contained'>Subscribe</Button>
-       <div>
+       <div className='footer-images'>
 <img src='src\Components\IMAGES\mastercard.jpg' ></img>
 <img src='src\Components\IMAGES\visa.jpg'></img>
 <img src='src\Components\IMAGES\paypal.png'></img>
@@ -44,12 +44,13 @@ const Footer = () => {
        </div>
         </div>
       </div>
-    </div>
+      </div>
     <div className='copyright'>
         <h1>Copyright</h1> 
         <CopyrightIcon sx={{height:"40px"}}/>
         <h1>2021 Hublet By Qodex</h1>
     </div>
+    
     </>
   );
 }
