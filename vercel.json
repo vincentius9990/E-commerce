@@ -3,15 +3,13 @@
     {
       "name": "frontend",
       "source": "udemy",
-      "buildCommand": "npm run dev",
-      "outputDirectory": "public",
-      "root": "udemy"
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist",
+      "root": "/udemy"
     },
     {
       "name": "backend",
-      "source": "backend",
-      "buildCommand": "npm install",
-      "outputDirectory": "."
+      "source": "backend"
     }
   ],
   "routes": [
