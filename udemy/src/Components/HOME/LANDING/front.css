@@ -7,7 +7,7 @@ height: 560px;
 width: 100%;
 display: flex;
 align-items: center;
-background-image: url('/udemy/public/IMAGES/ezgif-1-d2cfe6cb9b.jpg');
+background-image: url('/IMAGES/ezgif-1-d2cfe6cb9b.jpg');
 background-size: cover;/* to ensure the image covers the entire <div> while maintaining its aspect ratio.*/
 overflow: hidden;
 }
