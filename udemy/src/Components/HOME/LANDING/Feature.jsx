@@ -14,7 +14,7 @@ const Feature = () => {
     
 <div className='feature-parent'>
 <div className='left'>
-<img src='src/Components/IMAGES/feature.jpg'/>
+<img src='/udemy/public/IMAGES/feature.jpg'/>
 
 </div>
 <div className='right'>
