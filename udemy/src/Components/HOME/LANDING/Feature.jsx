@@ -3,7 +3,7 @@ import './feature.css'
 import Card from './MYCard'
 const Feature = () => {
   
-  const img1='udemy/public/IMAGES/buildquality.jpg';
+  const img1='E-Commerce/udemy/public/IMAGES/buildquality.jpg';
   const img2='src/Components/IMAGES/batterylife.jpg';
   const img3='src/Components/IMAGES/qualcomm-snapdragon-w5.webp';
   const img4='src/Components/IMAGES/Smart-Watch-Battery-Saving-Tips-Gear.jpg';
