@@ -9,7 +9,7 @@
 
 }
 .appbar-navbar{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   overflow: hidden
 }
 
@@ -43,7 +43,7 @@ width: 100%;
 
 .list .navlink {
   text-decoration: none;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: gray;
   font-size: 20px;
   display: flex;
@@ -91,7 +91,7 @@ height: 50px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   transition: width 0.5s ease;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .search:hover {
