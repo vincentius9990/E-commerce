@@ -2,7 +2,7 @@
 
 .parent{
 
-border: 1px solid red;
+/* border: 1px solid red; */
 height: 560px;
 width: 100%;
 display: flex;
@@ -16,7 +16,7 @@ overflow: hidden;
 {
 height:270px ;
 width: 534px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 193px;
     overflow: hidden;
 }
@@ -52,7 +52,7 @@ justify-content: flex-end;
         display: flex;
     height:auto;
     width: 534px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         margin:auto;
         overflow: hidden;
 
