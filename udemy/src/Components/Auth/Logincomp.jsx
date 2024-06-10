@@ -6,6 +6,9 @@ import PasswordIcon from "@mui/icons-material/Password";
 import EmailIcon from "@mui/icons-material/Email";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const Logincomp = () => {
   const [formdata, setFormdata] = useState({
@@ -17,6 +20,8 @@ const Logincomp = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   // const navigate = useNavigate();
+ 
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
