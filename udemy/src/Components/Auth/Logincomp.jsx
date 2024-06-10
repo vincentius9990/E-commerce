@@ -22,7 +22,7 @@ const Logincomp = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://127.0.0.1:3000/login",
+        `${process.env.url}/login`,
         formdata
       ); // Token received from server
       const token = response.data.token; // Access the token from the response

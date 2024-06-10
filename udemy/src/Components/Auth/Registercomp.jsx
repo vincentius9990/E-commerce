@@ -33,7 +33,8 @@ setformdata({...formdata,[e.target.name]:e.target.value});
 
   }
   else{
-    axios.post("http://127.0.0.1:3000/register",formdata).then((data)=>{
+    // http://127.0.0.1:3000/register
+    axios.post(`${process.env.url}/register`,formdata).then((data)=>{
 console.log(" form data sent",data);
 Swal.fire({
   position: "center",
