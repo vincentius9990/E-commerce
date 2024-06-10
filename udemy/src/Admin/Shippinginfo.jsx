@@ -6,8 +6,10 @@ const Shippinginfo = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+   
+   //http://localhost:3000/ship
     axios
-      .get("http://localhost:3000/ship")
+      .get("https://e-commerce-1-mzmg.onrender.com/ship")
       .then((response) => {
         console.log(response.data.data);
         setData(response.data.data);

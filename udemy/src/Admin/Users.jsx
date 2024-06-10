@@ -10,7 +10,8 @@ const Users = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/admin', {
+    //http://localhost:3000/admin
+    axios.get('https://e-commerce-1-mzmg.onrender.com/admin', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
