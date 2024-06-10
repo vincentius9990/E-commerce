@@ -6,7 +6,6 @@ import PasswordIcon from "@mui/icons-material/Password";
 import EmailIcon from "@mui/icons-material/Email";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-require('dotenv').config();
 
 const Logincomp = () => {
   const [formdata, setFormdata] = useState({
