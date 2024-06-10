@@ -85,7 +85,8 @@ if(shippingMethod==='')
       // Proceed with order placement
       console.log("Order placed successfully");
       const obj={...shippingAddress,...payment,...contactinfo,...ship,...amount};
-      axios.post('http://localhost:3000/ship',obj).then(()=>{
+      //http://localhost:3000/ship
+      axios.post('https://e-commerce-1-mzmg.onrender.com/ship',obj).then(()=>{
         Swal.fire({
           position: "center",
           icon: "success",
