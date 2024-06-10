@@ -6,8 +6,6 @@ import PasswordIcon from "@mui/icons-material/Password";
 import EmailIcon from "@mui/icons-material/Email";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import dotenv from 'dotenv';
-dotenv.config();
 
 
 const Logincomp = () => {
@@ -27,7 +25,7 @@ const Logincomp = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.url}/login`,
+        'https://e-commerce-1-mzmg.onrender.com/login',
         formdata
       ); // Token received from server
       const token = response.data.token; // Access the token from the response

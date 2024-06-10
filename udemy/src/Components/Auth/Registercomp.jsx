@@ -5,8 +5,6 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import dotenv from 'dotenv';
-dotenv.config();
 const Registercomp = () => {
 const[formdata,setformdata]=useState({
   fname:'',
@@ -36,7 +34,7 @@ setformdata({...formdata,[e.target.name]:e.target.value});
   }
   else{
     // http://127.0.0.1:3000/register
-    axios.post(`${process.env.url}/register`,formdata).then((data)=>{
+    axios.post('https://e-commerce-1-mzmg.onrender.com/register',formdata).then((data)=>{
 console.log(" form data sent",data);
 Swal.fire({
   position: "center",
