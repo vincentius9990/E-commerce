@@ -47,7 +47,7 @@ Swal.fire({
 setTimeout(()=>{
   navigate('/login');
 
-},1500)
+},1200)
 
 
 

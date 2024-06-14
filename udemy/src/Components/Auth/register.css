@@ -16,16 +16,18 @@
   
 /* border: 1px solid red; */
 }
-.login-div {
-  /* border: 1px solid red; */
 
+
+ .login-div {
+  border: 1px solid red;
+max-width: 100%;
   background-color: whitesmoke;
-}
+} 
 
 .loginForm {
-  /* border: 1px solid red; */
-  height: 409px;
-  width: 485px;
+  border: 1px solid red;
+  min-height: 409px;
+  max-width: 100%;
   margin: 60px;
 }
 .loginForm h1,
@@ -47,11 +49,13 @@ h3 {
   justify-content: center;
 }
 form {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  max-width: 100%;
 }
 .button {
   /* border: 1px solid red; */
@@ -65,4 +69,79 @@ form {
 }
 .Button {
   width: 100%;
+}
+
+
+
+@media (max-width: 479px) {
+  .login-div {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .loginForm h1 {
+    font-size: 1.5rem;
+  }
+
+  .loginForm p {
+    font-size: 1rem;
+  }
+
+  .textfield {
+    font-size: 0.875rem;
+  }
+
+  .button .Button {
+    font-size: 0.875rem;
+  }
+/* }
+@media screen and (max-width:479px)
+{
+  .login-div
+  {
+    border: none;
+    overflow: hidden;
+  }
+  .login
+  {
+    overflow: hidden;
+    grid-template-columns: 1fr;
+  }
+ .login-div{
+max-width: 100%;
+height: auto;
+
+}
+form{
+display: flex;
+align-items: center;
+justify-content: center;
+max-width: 100%;
+height: auto;
+}
+.loginForm
+{
+  
+  width: 150px;
+  height: auto;
+
+}  */
+
+/* .login{
+  overflow: hidden;
+display: grid;
+grid-template-columns: 1fr;
+place-items: center;
+
+} */
+
+.image{
+  display: none;
+}
+.textfield
+{
+  width: 100%;
+
+}
+
 }

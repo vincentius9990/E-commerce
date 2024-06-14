@@ -271,7 +271,7 @@ navigate('/sidebar');
                   placeholder="Search for Products"
                 ></input>
               
-                <IconButton onClick={handlesearch}>
+                <IconButton className='search-icon'onClick={handlesearch}>
                   <SearchOutlinedIcon />
                 </IconButton>
                 
