@@ -116,7 +116,7 @@ const navigate=useNavigate();
         </div>
       ) : (
         <div className="empty-cart">
-          <img src="src\Components\IMAGES\undraw_empty_cart_co35.png"></img>
+          <img src="\IMAGES\undraw_empty_cart_co35.png"></img>
           <h1>Cart is empty</h1>
           <Button variant='contained' className='empty-cart-button' onClick={()=>{navigate('/')}}>Back to homepage</Button>
         </div>
