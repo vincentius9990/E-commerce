@@ -6,7 +6,6 @@ Welcome to my project! This README will guide you through viewing the live demos
 
 You can view the live versions of the project here:
 - **Vercel Deployment**: [View Live on Vercel](https://ecommerce-cg31n5uwy-vincents-projects-ec5e997c.vercel.app)
-- **Render Deployment**: [View Live on Render](https://e-commerce-1-mzmg.onrender.com)
 
 ## Table of Contents
 
