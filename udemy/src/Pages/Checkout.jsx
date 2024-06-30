@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./checkout.css";
 import { useCart } from "react-use-cart";
 import Swal from "sweetalert2";
-import axios from 'axios';
+import API from '../api/axios';
 import { useNavigate } from "react-router-dom";
 const Checkout = () => {
   const [shippingAddress, setShippingAddress] = useState({
@@ -86,7 +86,7 @@ if(shippingMethod==='')
       console.log("Order placed successfully");
       const obj={...shippingAddress,...payment,...contactinfo,...ship,...amount};
       //http://localhost:3000/ship
-      axios.post('https://e-commerce-1-mzmg.onrender.com/ship',obj).then(()=>{
+      API.post('/ship',obj).then(()=>{
         Swal.fire({
           position: "center",
           icon: "success",

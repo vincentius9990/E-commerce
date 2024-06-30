@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
+import API from '../api/axios';
 import { Box } from '@mui/material';
 
 const Users = () => {
@@ -11,7 +11,7 @@ const Users = () => {
 
   useEffect(() => {
     //http://localhost:3000/admin
-    axios.get('https://e-commerce-1-mzmg.onrender.com/admin', {
+    API.get('/admin', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
