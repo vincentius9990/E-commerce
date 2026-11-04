@@ -29,6 +29,7 @@ const createUser = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
+    console.log(error)
     res.status(500).json({ error: "An error occurred while registering" });
   }
 };

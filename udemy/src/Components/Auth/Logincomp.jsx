@@ -5,6 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import PasswordIcon from "@mui/icons-material/Password";
 import EmailIcon from "@mui/icons-material/Email";
 import axios from "axios";
+import API from "../../api/axios";
 import { NavLink } from "react-router-dom";
 
 
@@ -24,8 +25,8 @@ const Logincomp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        'https://e-commerce-1-mzmg.onrender.com/login',
+      const response = await API.post(
+        '/login',
         formdata
       ); // Token received from server
       const token = response.data.token; // Access the token from the response
