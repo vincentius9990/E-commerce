@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
+import API from "../api/axios";
 
 const Shippinginfo = () => {
   const [data, setData] = useState([]);
@@ -8,8 +8,8 @@ const Shippinginfo = () => {
   useEffect(() => {
    
    //http://localhost:3000/ship
-    axios
-      .get("https://e-commerce-1-mzmg.onrender.com/ship")
+    API
+      .get("/ship")
       .then((response) => {
         console.log(response.data.data);
         setData(response.data.data);

@@ -1,11 +1,72 @@
-.pagenotfound
-{
-border: 1px solid red;
-width: 100%;
-height: auto;
-display: flex;
-justify-content: center;
-padding: 10px;
-align-items: center;
+.pagenotfound {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 64px 24px 88px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.12), transparent 45%),
+    linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+}
 
+.pagenotfound img {
+  width: min(420px, 82vw);
+  height: auto;
+}
+
+.pagenotfound-copy {
+  max-width: 440px;
+  text-align: center;
+}
+
+.pagenotfound-code {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.pagenotfound-copy h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.pagenotfound-copy p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.pagenotfound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.pagenotfound-actions .MuiButton-root {
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .pagenotfound {
+    gap: 28px;
+    padding: 44px 18px 64px;
+  }
+
+  .pagenotfound-copy h1 {
+    font-size: 26px;
+  }
 }

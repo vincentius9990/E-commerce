@@ -4,7 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import Timer from "./Timer";
 
-
 const Offer = () => {
   const [open, setOpen] = useState(false);
 
@@ -12,24 +11,25 @@ const Offer = () => {
     setOpen(!open);
   };
 
-  console.log("offertext");
-
   return (
     <section
       className="offer_container"
-      style={{ display: open ? "none" : "block" }}
+      style={{ display: open ? "none" : "flex" }}
     >
       <div className="offer_text">
+        <span className="offer-tag">Limited time</span>
         <p>
-          <b>Its the last day to save</b> | The skills for now — now on sale.
+          <b>Weekend drop:</b> up to 30% off smart watches &amp; accessories.
         </p>
         <Timer />
       </div>
-      <div className="offer_close">
-        <IconButton onClick={toggleClosebutton}>
-          <CloseIcon className="close_icon" sx={{ color: "black" }} />
-        </IconButton>
-      </div>
+      <IconButton
+        className="offer_close"
+        onClick={toggleClosebutton}
+        aria-label="Close offer"
+      >
+        <CloseIcon className="close_icon" />
+      </IconButton>
     </section>
   );
 };

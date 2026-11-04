@@ -31,13 +31,18 @@ import HomeIcon from "@mui/icons-material/Home";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
+import WatchIcon from "@mui/icons-material/Watch";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 
 
 const pages = [
   { id: 1, name: "Home", link: "/", icon: <HomeIcon /> },
-  { id: 2, name: "login", link: "/login", icon: <LoginIcon /> },
-  { id: 3, name: "register", link: "/register", icon: <HowToRegIcon /> },
+  { id: 2, name: "Shop", link: "/shop", icon: <StorefrontIcon /> },
+  { id: 3, name: "Support", link: "/support", icon: <SupportAgentIcon /> },
   { id: 4, name: "Contact Us", link: "/contact", icon: <ContactPageIcon /> },
+  { id: 5, name: "Login", link: "/login", icon: <LoginIcon /> },
+  { id: 6, name: "Register", link: "/register", icon: <HowToRegIcon /> },
 ];
 const settings = ["Logout"];
 
@@ -144,16 +149,12 @@ navigate('/sidebar');
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
-              <Link to="/">
-                {" "}
-                <div className="logoimg"> <img
-                  src="https://frontends.udemycdn.com/frontends-homepage/staticx/udemy/images/v7/logo-udemy.svg"
-                  alt="Logo"
-                  
-                />
-                </div>
-                
+            <Box sx={{ display: { xs: "none", md: "flex" }, mr: 2 }}>
+              <Link to="/" className="brand">
+                <WatchIcon />
+                <span>
+                  Tech<span>Nova</span>
+                </span>
               </Link>
             </Box>
 
@@ -176,11 +177,12 @@ navigate('/sidebar');
                   width: "100%",
                 }}
               >
-                <img
-                  src="https://frontends.udemycdn.com/frontends-homepage/staticx/udemy/images/v7/logo-udemy.svg"
-                  alt="Logo"
-                  style={{ width: "100px", height: "35px" }}
-                />
+                <Link to="/" className="brand">
+                  <WatchIcon />
+                  <span>
+                    Tech<span>Nova</span>
+                  </span>
+                </Link>
               </div>
               {/* hamburger menu (mobile view)*/}
               <Menu
@@ -220,6 +222,24 @@ navigate('/sidebar');
                   </NavLink>
                 </li>
 
+                <li>
+                  <NavLink
+                    to="/shop"
+                    activeclassname="active"
+                    className="navlink"
+                  >
+                    <StorefrontIcon /> <h1>Shop</h1>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/support"
+                    activeclassname="active"
+                    className="navlink"
+                  >
+                    <SupportAgentIcon /> <h1>Support</h1>
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to="/contact"

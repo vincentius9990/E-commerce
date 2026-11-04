@@ -1,38 +1,18 @@
-import React from 'react'
-import { Card } from '@mui/material'
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import './feature.css'
-const MYCard = (props) => {
+import React from "react";
+import "./feature.css";
+
+const MYCard = ({ image, alt, title, text }) => {
   return (
-<>
-<div className='card-image'> 
-<Card sx={{ maxWidth: 345 }} >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-       
-          image={props.image}
-          alt={props.alt}
-          sx={{ height: 140, width:"100%" }} 
-       className='cardmedia-feature'
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <article className="feature-card">
+      <div className="feature-card-media">
+        <img src={image} alt={alt} />
+      </div>
+      <div className="feature-card-body">
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+    </article>
+  );
+};
 
-</div>
-</>
-  )
-}
-
-export default MYCard
+export default MYCard;

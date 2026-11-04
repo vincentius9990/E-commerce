@@ -1,147 +1,105 @@
 .login {
-  /* border: 1px solid red; */
   display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  padding: 100px 50px;
-}
-.image{
-  /* border: 1px solid red; */
-  background-image: url('../IMAGES/undraw_Sign_up_n6im.png');
-  background-size: cover;
-}
-.image img {
-  height: 100%;
-  width: 100%;
-  
-/* border: 1px solid red; */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 30px;
+  padding: 50px;
+  overflow-x: hidden;
 }
 
-
- .login-div {
-  /* border: 1px solid red; */
-max-width: 100%;
-  background-color: whitesmoke;
-} 
-
-.loginForm {
-  /* border: 1px solid red; */
+.register-image {
+  min-width: 0;
+  align-self: stretch;
   min-height: 409px;
-  max-width: 100%;
-  margin: 60px;
-}
-.loginForm h1,
-p,
-h3 {
-  text-align: center;
-}
-.loginForm h1 {
-  font-size: 30px;
-}
-.loginForm p {
-  font-size: 20px;
+  background-image: url("/IMAGES/undraw_Sign_up_n6im.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.button {
-  /* border: 1px solid red; */
+.register-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.login-div {
+  min-width: 0;
+  max-width: 100%;
+  background-color: whitesmoke;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.loginForm {
+  width: 100%;
+  max-width: 485px;
+  min-height: 409px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginForm h1,
+.loginForm p,
+.loginForm h3 {
+  text-align: center;
+}
+
+.loginForm h1 {
+  font-size: 30px;
+}
+
+.loginForm p {
+  font-size: 20px;
+}
+
 form {
-  /* border: 1px solid red; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  max-width: 100%;
 }
+
 .button {
-  /* border: 1px solid red; */
   width: 100%;
   height: 38px;
   margin-top: 50px;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* The password field used to have a 170px top margin, which pushed the
+   form past the viewport and created the page scrollbar. */
 .textfield {
-  margin-top: 170px;
+  margin-top: 0;
+  width: 100%;
 }
+
 .Button {
   width: 100%;
 }
 
+@media (max-width: 900px) {
+  .login {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
 
+  .register-image {
+    display: none;
+  }
 
-@media (max-width: 479px) {
-  .login-div {
-    width: 90%;
+  .loginForm {
+    min-height: 0;
+    margin: 0 auto;
     padding: 10px;
   }
-
-  .loginForm h1 {
-    font-size: 1.5rem;
-  }
-
-  .loginForm p {
-    font-size: 1rem;
-  }
-
-  .textfield {
-    font-size: 0.875rem;
-  }
-
-  .button .Button {
-    font-size: 0.875rem;
-  }
-/* }
-@media screen and (max-width:479px)
-{
-  .login-div
-  {
-    border: none;
-    overflow: hidden;
-  }
-  .login
-  {
-    overflow: hidden;
-    grid-template-columns: 1fr;
-  }
- .login-div{
-max-width: 100%;
-height: auto;
-
-}
-form{
-display: flex;
-align-items: center;
-justify-content: center;
-max-width: 100%;
-height: auto;
-}
-.loginForm
-{
-  
-  width: 150px;
-  height: auto;
-
-}  */
-
-/* .login{
-  overflow: hidden;
-display: grid;
-grid-template-columns: 1fr;
-place-items: center;
-
-} */
-
-.image{
-  display: none;
-}
-.textfield
-{
-  width: 100%;
-
-}
-
 }
