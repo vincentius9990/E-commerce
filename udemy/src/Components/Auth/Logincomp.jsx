@@ -19,6 +19,7 @@ import WatchIcon from "@mui/icons-material/Watch";
 import { NavLink } from "react-router-dom";
 import API from "../../api/axios";
 import { getApiErrorMessage } from "../../utils/apiError";
+import GoogleButton from "./GoogleButton";
 
 const benefits = [
   { icon: <LocalShippingOutlinedIcon />, text: "Fast, tracked delivery on every order" },
@@ -37,32 +38,65 @@ const Logincomp = () => {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const completeLogin = (token, message) => {
+    localStorage.setItem("token", token);
+    localStorage.setItem("isloggedin", true);
+    setgreen(true);
+    setSnackbarMessage(message || "Login successful");
+    setOpenSnackbar(true);
+    setLoading(false);
+
+    if (token) {
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1200);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       const response = await API.post("/login", formdata);
-      const token = response.data.token;
-
-      localStorage.setItem("token", token);
-      localStorage.setItem("isloggedin", true);
-      setgreen(true);
-      setSnackbarMessage(response.data.message || "Login successful");
-      setOpenSnackbar(true);
-      setLoading(false);
-
-      if (token) {
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 1200);
-      }
+      completeLogin(response.data.token, response.data.message || "Login successful");
     } catch (err) {
       setLoading(false);
       setgreen(false);
       setSnackbarMessage(getApiErrorMessage(err));
       setOpenSnackbar(true);
     }
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    if (!credentialResponse?.credential) {
+      setgreen(false);
+      setSnackbarMessage("Google did not return a credential. Please try again.");
+      setOpenSnackbar(true);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await API.post("/google", {
+        credential: credentialResponse.credential,
+      });
+      completeLogin(response.data.token, response.data.message || "Login successful");
+    } catch (err) {
+      setLoading(false);
+      setgreen(false);
+      setSnackbarMessage(
+        getApiErrorMessage(err, "Google login failed. Please try again.")
+      );
+      setOpenSnackbar(true);
+    }
+  };
+
+  const handleGoogleError = () => {
+    setgreen(false);
+    setSnackbarMessage("Google login was cancelled or failed.");
+    setOpenSnackbar(true);
   };
 
   const handleChange = (e) => {
@@ -183,10 +217,19 @@ const Logincomp = () => {
             </form>
 
             <div className="auth-divider">
-              <span>New to TechNova?</span>
+              <span>or</span>
             </div>
 
-            <p className="auth-alt">
+            <div
+              className={`google-login-wrap${loading ? " is-disabled" : ""}`}
+            >
+              <GoogleButton
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleError}
+              />
+            </div>
+
+            <p className="auth-alt auth-alt--spaced">
               Don&apos;t have an account?{" "}
               <NavLink to="/register">Create one</NavLink>
             </p>

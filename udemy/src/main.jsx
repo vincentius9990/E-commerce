@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from "react-use-cart";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    
-   <BrowserRouter> 
-   
+   <BrowserRouter>  
    <CartProvider> 
-  
+ 
+  <GoogleOAuthProvider
+    clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
+  >
     <App />
-    </CartProvider>
+
+  </GoogleOAuthProvider>
+     </CartProvider>
     
     </BrowserRouter>
   </React.StrictMode>
