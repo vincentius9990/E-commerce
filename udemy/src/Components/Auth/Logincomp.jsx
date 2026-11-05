@@ -18,6 +18,7 @@ import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import WatchIcon from "@mui/icons-material/Watch";
 import { NavLink } from "react-router-dom";
 import API from "../../api/axios";
+import { getApiErrorMessage } from "../../utils/apiError";
 
 const benefits = [
   { icon: <LocalShippingOutlinedIcon />, text: "Fast, tracked delivery on every order" },
@@ -59,9 +60,7 @@ const Logincomp = () => {
     } catch (err) {
       setLoading(false);
       setgreen(false);
-      setSnackbarMessage(
-        err.response?.data?.error || "Something went wrong. Please try again."
-      );
+      setSnackbarMessage(getApiErrorMessage(err));
       setOpenSnackbar(true);
     }
   };
