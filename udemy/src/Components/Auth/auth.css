@@ -202,6 +202,31 @@
   padding: 0 12px;
 }
 
+/* Google sign-in (button is an iframe rendered by Google Identity Services) */
+.google-login-wrap {
+  transition: opacity 0.2s ease;
+}
+
+.google-login-wrap.is-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.google-login-slot {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  justify-content: center;
+}
+
+.google-login-slot > div {
+  max-width: 100%;
+}
+
+.auth-alt--spaced {
+  margin-top: 22px;
+}
+
 .auth-alt {
   text-align: center;
   color: var(--muted);
