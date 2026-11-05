@@ -18,6 +18,7 @@ import WatchIcon from "@mui/icons-material/Watch";
 import { NavLink, useNavigate } from "react-router-dom";
 import { showError, showSuccess } from "../../utils/alerts";
 import API from "../../api/axios";
+import { getApiErrorMessage } from "../../utils/apiError";
 
 const benefits = [
   { icon: <LocalShippingOutlinedIcon />, text: "Track every order from checkout to door" },
@@ -85,7 +86,7 @@ const Registercomp = () => {
         setLoading(false);
         showError(
           "Could not create account",
-          err.response?.data?.error || "Please try again in a moment."
+          getApiErrorMessage(err, "Please try again in a moment.")
         );
       });
   };

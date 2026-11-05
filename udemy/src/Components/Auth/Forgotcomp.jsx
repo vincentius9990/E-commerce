@@ -13,6 +13,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { NavLink } from "react-router-dom";
 import API from "../../api/axios";
+import { getApiErrorMessage } from "../../utils/apiError";
 
 const Forgotcomp = () => {
   const [email, setEmail] = useState("");
@@ -57,8 +58,10 @@ const Forgotcomp = () => {
       setSubmitted(true);
     } catch (err) {
       showError(
-        err.response?.data?.message ||
-          "Unable to process your request. Please try again.",
+        getApiErrorMessage(
+          err,
+          "Unable to process your request. Please try again."
+        )
       );
     } finally {
       setLoading(false);

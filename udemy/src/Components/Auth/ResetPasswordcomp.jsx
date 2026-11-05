@@ -16,6 +16,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { NavLink, useParams } from "react-router-dom";
 import API from "../../api/axios";
+import { getApiErrorMessage } from "../../utils/apiError";
 
 const ResetPasswordcomp = () => {
   const { token } = useParams();
@@ -73,8 +74,10 @@ const ResetPasswordcomp = () => {
       setSubmitted(true);
     } catch (err) {
       showError(
-        err.response?.data?.message ||
-          "Unable to reset your password. The link may have expired.",
+        getApiErrorMessage(
+          err,
+          "Unable to reset your password. The link may have expired."
+        )
       );
     } finally {
       setLoading(false);
